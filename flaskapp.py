@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 from WebSynTeamPlus import SynTeamPlus
-from flask_caching import Cache
 
-cache = Cache()
 
 app = Flask(__name__)
-cache.init_app(app, config={'CACHE_TYPE': 'null'})
 
 @app.route('/')
 def index():
@@ -33,4 +30,4 @@ def pick_teams():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
