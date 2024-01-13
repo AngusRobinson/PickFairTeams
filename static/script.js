@@ -108,115 +108,47 @@ function processInputFile(file) {
 
 
 function sendFormData(proficiencies, studentIds) {
-    // Display the loading message and hide any previous error messages
-    document.getElementById('loading-message').style.display = 'block';
-    document.getElementById('error-message').style.display = 'none';
-    // Get the number of teams from the input field and convert it to an integer
     const numTeams = parseInt(document.getElementById('num-teams').value);
 
-    // Send a POST request to the Flask server with the JSON data
-    fetch('/pick_teams', {
-        method: 'POST', // Specify the request method as POST
-        headers: {
-            'Content-Type': 'application/json' // Set the content type of the request body
-        },
-        body: JSON.stringify({ // Convert the input data to a JSON string
-            proficiencies: proficiencies,
-            num_teams: numTeams
-        })
-    })
+    // Call the SynTeamPlus function with the proficiencies and number of teams
+    const teamsMatrix = synTeamPlus({ prof: proficiencies }, numTeams);
 
-    .then(response => response.json()) // Convert the response to a JSON object
-    .then(results => {
-        // Hide the loading message
-        document.getElementById('loading-message').style.display = 'none';
-
-        if (!displayResultsCalled) {
-            displayResultsCalled = true;
-            console.log('results:', results);
-            displayResults(results, studentIds);
-        }
-    }) // Pass the JSON object and studentIds to the displayResults function
-    .catch(error => {
-        console.error('Error:', error); // Log any errors that occur during the process
-        // Hide the loading message and display the error message
-        document.getElementById('loading-message').style.display = 'none';
-        document.getElementById('error-message').style.display = 'block';
-    });
+    // Process the results directly
+    displayResults(teamsMatrix, studentIds);
 }
 
-
-function displayResults(results, studentIds) {
-    console.log('Student IDs in displayResults:', studentIds);
-    const teams = results.teams;
+function displayResults(teamsMatrix, studentIds) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
 
-    const numTeams = teams[0].length;
+    const numTeams = teamsMatrix[0].length;
+    let teamArrays = Array.from({ length: numTeams }, () => []);
 
-    // Initialize team arrays
-    let teamArrays = [];
-    for (let i = 0; i < numTeams; i++) {
-        teamArrays.push([]);
-    }
+    teamsMatrix.forEach((team, studentIndex) => {
+        const teamIndex = team.indexOf(1);
+        teamArrays[teamIndex].push(studentIds[studentIndex]);
+    });
 
-    // Fill team arrays with student IDs
-    for (let i = 0; i < studentIds.length; i++) {
-        for (let j = 0; j < numTeams; j++) {
-            if (teams[i][j] === 1) {
-                teamArrays[j].push(studentIds[i]);
-                break;
-            }
-        }
-    }
-    console.log('teamArrays:', teamArrays);
-
-    // Display teams
-    for (let i = 0; i < teamArrays.length; i++) {
+    teamArrays.forEach((team, index) => {
         const teamDiv = document.createElement('div');
         teamDiv.className = 'team';
 
         const teamHeading = document.createElement('h3');
-        teamHeading.innerText = `Team ${i + 1}`;
+        teamHeading.innerText = `Team ${index + 1}`;
         teamDiv.appendChild(teamHeading);
 
         const teamList = document.createElement('ul');
-
-        for (let j = 0; j < teamArrays[i].length; j++) {
+        team.forEach(studentId => {
             const listItem = document.createElement('li');
-            listItem.innerText = teamArrays[i][j];
+            listItem.innerText = studentId;
             teamList.appendChild(listItem);
-        }
+        });
 
         teamDiv.appendChild(teamList);
         resultsDiv.appendChild(teamDiv);
-    }
-    // Create a CSV string with the results
-    let csvData = 'ID,Team\n';
-    for (let i = 0; i < studentIds.length; i++) {
-        for (let j = 0; j < teams.length; j++) {
-            if (teams[i][j] === 1) {
-                csvData += `${studentIds[i]},${j + 1}\n`;
-                break;
-            }
-        }
-    }
+    });
+}
 
-
-    // Add an event listener to the export button
-    const exportBtn = document.getElementById('export-btn');
-    exportBtn.csvData = csvData;
-    exportBtn.style.display = 'block'; // Show the export button
-    exportBtn.onclick = function () {
-        // Create a temporary link element to download the CSV file
-        const link = document.createElement('a');
-        link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(this.csvData);
-        link.download = 'teams.csv';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-}                   
 function resetForm() {
     document.getElementById('num-teams').value = '';
     document.getElementById('file-upload').value = '';
