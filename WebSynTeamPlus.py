@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 
-@author: angus
+@author: angus robinson
 Web version of SynTeamPlus
 
 After Eva Andrejczuk's design of SynTeam
