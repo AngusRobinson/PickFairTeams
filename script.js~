@@ -1,4 +1,3 @@
-import synTeamPlus from synTeamPlus
 let displayResultsCalled=false;
 
 function toggleInput() {
