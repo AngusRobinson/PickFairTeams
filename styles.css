@@ -1,4 +1,139 @@
-* {
+/* Reset some basic elements */
+body, h1, p, form, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #444;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 20px;
+}
+
+/* Main content */
+main {
+    padding: 20px;
+}
+
+.description, .team-form-section, .results-section {
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+#team-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#team-form label,
+#team-form input[type="number"],
+#team-form textarea,
+#team-form button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#team-form button {
+    width: auto;
+    background-color: #5C7AEA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#team-form button:hover {
+    background-color: #4358B4;
+}
+
+/* Results and download link styling */
+.results-section {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.team {
+    margin-bottom: 20px;
+}
+
+.team h3 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.team ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team ul li {
+    background: #EEE;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.download-csv-link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.download-csv-link:hover {
+    background-color: #3E8E41;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #444;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* {
     font-family: Cochin;
     font-size: 16px
 }
@@ -32,7 +167,6 @@ textarea {
     margin-bottom: 20px;
 }
 
-
 input[type="number"]{
     width: 70px;
 }
@@ -61,4 +195,4 @@ input, button {
     align-items: center;
     margin-bottom: 10px;
 }
-
+*/
