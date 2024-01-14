@@ -147,7 +147,9 @@ function displayResults(teamsMatrix, studentIds) {
         teamDiv.appendChild(teamList);
         resultsDiv.appendChild(teamDiv);
     });
-    
+    console.log("Teams Matrix:", teamsMatrix);
+    console.log("Student IDs:", studentIds);
+
     const csvData = generateCSV(teamsMatrix, studentIds);
 
     const downloadLink = document.createElement('a');
@@ -177,7 +179,7 @@ function generateCSV(teamsMatrix, studentIds) {
         const teamIndex = team.indexOf(1) + 1;
         csvContent += `${studentIds[studentIndex]},${teamIndex}\n`;
     });
-
+    console.log("Generated CSV:", csvContent);
     return encodeURI(csvContent);
 }
 
