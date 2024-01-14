@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="team, sorting, picking, fair, teams, division, algorithm, students, proficiency, balancing">
+    <title>Pick Fair Teams</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pick Fair Teams</h1>
+        <p>This tool helps you divide a group of people (students, football players etc.) into fair teams based on their individual proficiency levels.</p>
+        <!-- Additional descriptions -->
+        <form id="team-form">
+            <!-- Form contents -->
+            <button type="button" id="reset-btn" onclick="resetForm()">Reset</button>
+        </form>
+        <div id="loading-message" style="display:none;">Processing data, please wait...</div>
+        <div id="error-message" style="display:none;">An error occurred during processing. Please try again...</div>
+        <div id="results">
+            <!-- The results will be displayed here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="synTeamPlus.js"></script>
+</body>
+</html>
+

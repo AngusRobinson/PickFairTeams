@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="team, sorting, picking, fair, teams, division, algorithm, students, proficiency, balancing">
     <title>Pick Fair Teams</title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container"></div>
@@ -31,14 +31,13 @@
             <button id="export-btn" style="display:none;">Export as CSV</button>
             <button type="button" id="reset-btn" onclick="resetForm()">Reset</button>
         </form>
-        <div id="loading-message" style="display:none;">Processing data, please wait... For large teams, it may take a few minutes.</div>
-        <div id="error-message" style="display:none;">An error occurred during processing. Please try again. If it still doesn't work, your data may be too large. Try splitting it up into smaller chunks and running them separately (e.g. instead of sorting 300 people into 30 teams of 10, split them into three (random-ish groups) sort the first hundred into 10 teams of 10, then do the same for the second and third hundreds). In general, you will still get fairly good solutions.</div>
-
-        
+        <div id="loading-message" style="display:none;">Processing data, please wait...</div>
+        <div id="error-message" style="display:none;">An error occurred during processing. Please try again...</div>
         <div id="results">
         </div>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-
+    <script src="script.js"></script>
+    <script src="synTeamPlus.js"></script>
 </body>
 </html>
+

@@ -36,8 +36,10 @@
 
         
         <div id="results">
+            <!-- The results will be displayed here -->
         </div>
     </div>
+    <!-- Your HTML content will go here -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
