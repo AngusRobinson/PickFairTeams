@@ -147,6 +147,16 @@ function displayResults(teamsMatrix, studentIds) {
         teamDiv.appendChild(teamList);
         resultsDiv.appendChild(teamDiv);
     });
+    
+    const csvData = generateCSV(teamsMatrix, studentIds);
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = csvData;
+    downloadLink.download = 'teams.csv';
+    downloadLink.textContent = 'Download Results as CSV';
+    downloadLink.className = 'download-csv-link';
+
+    resultsDiv.appendChild(downloadLink);
 }
 
 function resetForm() {
@@ -155,5 +165,19 @@ function resetForm() {
     document.getElementById('manual-input').value = '';
     document.getElementById('results').innerHTML = '';
     document.getElementById('export-btn').style.display = 'none';
-    displayResultsCalled = false; // Reset the displayResultsCalled variable
+    displayResultsCalled = false; 
 }
+
+function generateCSV(teamsMatrix, studentIds) {
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    csvContent += "Name or ID,Team Number\n";
+
+    teamsMatrix.forEach((team, studentIndex) => {
+        const teamIndex = team.indexOf(1) + 1;
+        csvContent += `${studentIds[studentIndex]},${teamIndex}\n`;
+    });
+
+    return encodeURI(csvContent);
+}
+
