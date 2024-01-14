@@ -1,3 +1,226 @@
+/* Reset some basic elements */
+body, h1, p, form, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 40px;
+    margin-right: 15px;
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Description Section */
+.description .content-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+#team-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#num-teams {
+    width: 50%;
+}
+
+#team-form label, #team-form input, #team-form textarea, #team-form button {
+    display: block;
+    margin-bottom: 10px;
+padding: 10px;
+border-radius: 4px;
+}
+
+#team-form input[type="number"], #team-form textarea {
+border: 1px solid #ddd;
+width: calc(100% - 22px); /* Adjust width to account for padding and border */
+}
+
+#team-form button {
+background-color: #5C7AEA;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+#team-form button:hover {
+background-color: #4358B4;
+}
+
+/* Results Section */
+.results-section {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px; /* Space between team boxes */
+}
+
+.team {
+flex-basis: calc(33.333% - 20px); /* Three teams per row with gap */
+background: #EFEFEF;
+padding: 10px;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.team h3 {
+margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+text-align: center;
+padding: 15px 0;
+background-color: #f0f0f0;
+color: #333;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+.team {
+flex-basis: calc(50% - 20px); / Two teams per row on smaller screens */
+}
+
+#num-teams {
+    width: 100%;
+}
+/*
+/* Main content */
+main {
+    padding: 20px;
+}
+
+.description, .team-form-section, .results-section {
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+#team-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#team-form label,
+#team-form input[type="number"],
+#team-form textarea,
+#team-form button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#team-form button {
+    width: auto;
+    background-color: #5C7AEA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#team-form button:hover {
+    background-color: #4358B4;
+}
+
+/* Results and download link styling */
+.results-section {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.team {
+    margin-bottom: 20px;
+}
+
+.team h3 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.team ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team ul li {
+    background: #EEE;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.download-csv-link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.download-csv-link:hover {
+    background-color: #3E8E41;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #444;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
 /* {
     font-family: Cochin;
     font-size: 16px
@@ -60,4 +283,4 @@ input, button {
     align-items: center;
     margin-bottom: 10px;
 }
-*/
+*/*/
