@@ -147,7 +147,9 @@ function displayResults(teamsMatrix, studentIds) {
         teamDiv.appendChild(teamList);
         resultsDiv.appendChild(teamDiv);
     });
-    
+    console.log("Teams Matrix:", teamsMatrix);
+    console.log("Student IDs:", studentIds);
+
     const csvData = generateCSV(teamsMatrix, studentIds);
 
     const downloadLink = document.createElement('a');

@@ -83,8 +83,8 @@ background-color: #4358B4;
 
 /* Results Section */
 .results-section {
-display: flex;
-flex-wrap: wrap;
+display: flex !important;
+flex-wrap: wrap !important;
 justify-content: center;
 gap: 20px; /* Space between team boxes */
 }
