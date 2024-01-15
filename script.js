@@ -120,33 +120,37 @@ function displayResults(teamsMatrix, studentIds) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
 
-    const numTeams = teamsMatrix[0].length;
-    let teamArrays = Array.from({ length: numTeams }, () => []);
+    // Create a table element
+    const table = document.createElement('table');
+    table.className = 'results-table'; // Add a class for styling
 
-    teamsMatrix.forEach((team, studentIndex) => {
-        const teamIndex = team.indexOf(1);
-        teamArrays[teamIndex].push(studentIds[studentIndex]);
-    });
+    // Add a header row to the table
+    const thead = table.createTHead();
+    const headerRow = thead.insertRow();
+    for (let i = 0; i < teamsMatrix[0].length; i++) {
+        const th = document.createElement('th');
+        th.textContent = `Team ${i + 1}`;
+        headerRow.appendChild(th);
+    }
 
-    teamArrays.forEach((team, index) => {
-        const teamDiv = document.createElement('div');
-        teamDiv.className = 'team';
+    // Find the maximum number of members in any team
+    const maxTeamSize = Math.max(...teamsMatrix.map(team => team.reduce((sum, val) => sum + val, 0)));
 
-        const teamHeading = document.createElement('h3');
-        teamHeading.innerText = `Team ${index + 1}`;
-        teamDiv.appendChild(teamHeading);
+    // Add rows to the table for each member
+    for (let i = 0; i < maxTeamSize; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < teamsMatrix[0].length; j++) {
+            const cell = row.insertCell();
+            const memberIndex = teamsMatrix.findIndex(team => team[j] === 1 && team[0] !== undefined);
+            if (memberIndex !== -1) {
+                cell.textContent = studentIds[memberIndex];
+                teamsMatrix[memberIndex][0] = undefined; // Mark as added
+            }
+        }
+    }
 
-        const teamList = document.createElement('ul');
-        team.forEach(studentId => {
-            const listItem = document.createElement('li');
-            listItem.innerText = studentId;
-            teamList.appendChild(listItem);
-        });
-
-        teamDiv.appendChild(teamList);
-        resultsDiv.appendChild(teamDiv);
-    });
-
+    // Append the table to resultsDiv
+    resultsDiv.appendChild(table);
     const csvData = generateCSV(teamsMatrix, studentIds);
 
     const downloadLink = document.createElement('a');

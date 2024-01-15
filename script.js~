@@ -96,7 +96,6 @@ function processInputFile(file) {
                 proficiencies.push(parseFloat(columns[1].trim()));
             }
         }
-        console.log('Student IDs before sending:', studentIds);
         // Call the sendFormData function with the proficiencies and studentIds arrays
         sendFormData(proficiencies, studentIds);
     };
@@ -147,8 +146,6 @@ function displayResults(teamsMatrix, studentIds) {
         teamDiv.appendChild(teamList);
         resultsDiv.appendChild(teamDiv);
     });
-    console.log("Teams Matrix:", teamsMatrix);
-    console.log("Student IDs:", studentIds);
 
     const csvData = generateCSV(teamsMatrix, studentIds);
 
@@ -179,7 +176,6 @@ function generateCSV(teamsMatrix, studentIds) {
         const teamIndex = team.indexOf(1) + 1;
         csvContent += `${studentIds[studentIndex]},${teamIndex}\n`;
     });
-    console.log("Generated CSV:", csvContent);
     return encodeURI(csvContent);
 }
 

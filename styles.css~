@@ -85,7 +85,7 @@ background-color: #4358B4;
 .results-section {
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
+/*justify-content: center;*/
 gap: 20px; /* Space between team boxes */
 }
 
