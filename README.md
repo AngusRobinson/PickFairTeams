@@ -1,5 +1,7 @@
 # Pick Fair Teams
 
+**NB Site currently down for redevelopment**
+
 Find the tool itself at [https://www.pickfairteams.com](https://www.pickfairteams.com).
 
 This web application helps you divide a group of people (students, football players, etc.) into fair teams based on their individual proficiency levels. It uses an algorithm developed as part of a Master's Thesis, which  you can read [here](ReworkedThesis.pdf).
