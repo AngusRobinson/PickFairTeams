@@ -17,7 +17,7 @@ function synTeamPlus(data, NTeams) {
     }
 
     let startTime = Date.now();
-    const foundUndefined=false;
+    let foundUndefined=false;
     while (heat > 1 && Date.now() < startTime + 850000) {
         let teamprof = Array.from(Array(NTeams), (_, i) => 
             PBest.reduce((acc, val, j) => acc + val[i] * prof[j], 0));
