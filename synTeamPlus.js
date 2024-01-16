@@ -91,6 +91,7 @@ function synTeamPlus(data, NTeams) {
         if (foundUndefined) {
             console.log({ PBest, teamset, teama, teamb, altA, altB, ABbestindex });
         }
+        console.log({PBest.sum()};
 
     }
     console.log(PBest);
