@@ -88,6 +88,7 @@ function synTeamPlus(data, NTeams) {
         if (foundUndefined) {
             console.log("Undefined found", { studentIndex: i, teamIndex: j });
             console.log({ PBest, teamset, teama, teamb, altA, altB, ABbestindex });
+        }
 
     }
     return PBest;

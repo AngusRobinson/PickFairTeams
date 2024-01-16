@@ -17,6 +17,7 @@ function synTeamPlus(data, NTeams) {
     }
 
     let startTime = Date.now();
+    const foundUndefined=false;
     while (heat > 1 && Date.now() < startTime + 850000) {
         let teamprof = Array.from(Array(NTeams), (_, i) => 
             PBest.reduce((acc, val, j) => acc + val[i] * prof[j], 0));
@@ -77,12 +78,20 @@ function synTeamPlus(data, NTeams) {
                 PBest[j][Aindex] = 0;
                 PBest[j][Bindex] = 1;
                 });
-            }
-        
-            heat -= coolingRate;
         }
-    return PBest;
+        for (let i = 0; i < NStudents; i++) {
+            for (let j = 0; j < NTeams; j++) {
+                if (PBest[i][j] === undefined) {
+                    foundUndefined = true;
+        
+        heat -= coolingRate;
+        if (foundUndefined) {
+            console.log("Undefined found", { studentIndex: i, teamIndex: j });
+            console.log({ PBest, teamset, teama, teamb, altA, altB, ABbestindex });
+
     }
+    return PBest;
+}
 
 function combination(array, size) {
     function p(t, i) {
