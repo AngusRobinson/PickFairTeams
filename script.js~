@@ -97,6 +97,7 @@ function processInputFile(file) {
             }
         }
         // Call the sendFormData function with the proficiencies and studentIds arrays
+        console.log(profiencies, studentIds);
         sendFormData(proficiencies, studentIds);
     };
 
@@ -111,7 +112,7 @@ function sendFormData(proficiencies, studentIds) {
 
     // Call the SynTeamPlus function with the proficiencies and number of teams
     const teamsMatrix = synTeamPlus({ prof: proficiencies }, numTeams);
-
+    console.log(teamsMatrix)
     // Process the results directly
     displayResults(teamsMatrix, studentIds);
 }

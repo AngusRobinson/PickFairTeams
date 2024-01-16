@@ -97,6 +97,7 @@ function processInputFile(file) {
             }
         }
         // Call the sendFormData function with the proficiencies and studentIds arrays
+        console.log(profiencies, studentIds);
         sendFormData(proficiencies, studentIds);
     };
 
