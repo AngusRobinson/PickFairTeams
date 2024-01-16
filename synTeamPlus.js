@@ -5,6 +5,7 @@ function synTeamPlus(data, NTeams) {
     let heat = 10;
     const coolingRate = 1;
     let PBest = Array.from(Array(NStudents), () => new Array(NTeams).fill(0));
+    console.log(PBest);
 
     const MinTeamSize = Math.floor(NStudents / NTeams);
     const MaxTeamSize = Math.ceil(NStudents / NTeams);
@@ -15,6 +16,7 @@ function synTeamPlus(data, NTeams) {
     for (let i = 0; i < NStudents; i++) {
         PBest[ordered[i]][i % NTeams] = 1;
     }
+    console.log(PBest);
 
     let startTime = Date.now();
     let foundUndefined=false;
