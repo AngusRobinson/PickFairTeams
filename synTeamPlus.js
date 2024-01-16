@@ -89,7 +89,6 @@ function synTeamPlus(data, NTeams) {
         
         heat -= coolingRate;
         if (foundUndefined) {
-            console.log("Undefined found", { studentIndex: i, teamIndex: j });
             console.log({ PBest, teamset, teama, teamb, altA, altB, ABbestindex });
         }
 
