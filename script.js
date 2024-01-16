@@ -111,7 +111,7 @@ function sendFormData(proficiencies, studentIds) {
 
     // Call the SynTeamPlus function with the proficiencies and number of teams
     const teamsMatrix = synTeamPlus({ prof: proficiencies }, numTeams);
-
+    console.log(teamsMatrix)
     // Process the results directly
     displayResults(teamsMatrix, studentIds);
 }
