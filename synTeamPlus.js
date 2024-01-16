@@ -3,7 +3,7 @@ function synTeamPlus(data, NTeams) {
     const NStudents = data.prof.length;
     const lda = 0.8;
     let heat = 10;
-    const coolingRate = 0.01;
+    const coolingRate = 1;
     let PBest = Array.from(Array(NStudents), () => new Array(NTeams).fill(0));
 
     const MinTeamSize = Math.floor(NStudents / NTeams);
