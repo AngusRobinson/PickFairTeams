@@ -94,6 +94,7 @@ function synTeamPlus(data, NTeams) {
         }
 
     }
+    console.log(PBest);
     return PBest;
 }
 

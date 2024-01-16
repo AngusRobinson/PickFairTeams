@@ -83,6 +83,9 @@ function synTeamPlus(data, NTeams) {
             for (let j = 0; j < NTeams; j++) {
                 if (PBest[i][j] === undefined) {
                     foundUndefined = true;
+                }
+            }
+        }
         
         heat -= coolingRate;
         if (foundUndefined) {
