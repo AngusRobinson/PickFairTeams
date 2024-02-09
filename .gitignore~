@@ -2,4 +2,3 @@ PickFairTeams.pem
 .gitignore
 venv
 __pychache__
-*~
