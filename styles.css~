@@ -82,10 +82,10 @@ background-color: #4358B4;
 }
 
 /* Results Section */
-.results-section {
-display: flex;
+.results {
+display: auto;
 flex-wrap: wrap;
-/*justify-content: center;*/
+justify-content: center;
 gap: 20px; /* Space between team boxes */
 }
 
@@ -117,5 +117,20 @@ flex-basis: calc(50% - 20px); / Two teams per row on smaller screens */
 
 #num-teams {
     width: 100%;
+}
+table {
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
 }
 

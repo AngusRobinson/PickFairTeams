@@ -5,7 +5,6 @@ function synTeamPlus(data, NTeams) {
     let heat = 10;
     const coolingRate = 1;
     let PBest = Array.from(Array(NStudents), () => new Array(NTeams).fill(0));
-    console.log(PBest);
 
     const MinTeamSize = Math.floor(NStudents / NTeams);
     const MaxTeamSize = Math.ceil(NStudents / NTeams);
@@ -16,7 +15,6 @@ function synTeamPlus(data, NTeams) {
     for (let i = 0; i < NStudents; i++) {
         PBest[ordered[i]][i % NTeams] = 1;
     }
-    console.log(PBest);
 
     let startTime = Date.now();
     let foundUndefined=false;
@@ -55,8 +53,8 @@ function synTeamPlus(data, NTeams) {
         let teamprofA = teama.reduce((acc, i) => acc + prof[i], 0);
         let teamprofB = teamb.reduce((acc, i) => acc + prof[i], 0);
         let ABcurrenteval = Math.log(teamprofA) + Math.log(teamprofB);
-
         let altA = combination(teamset, teamset.length === 2 * MinTeamSize ? MinTeamSize : MaxTeamSize);
+
         let altB = altA.map(a => teamset.filter(i => !a.includes(i)));
 
         let ABbesteval = -Infinity;
@@ -91,17 +89,18 @@ function synTeamPlus(data, NTeams) {
         
         heat -= coolingRate;
         if (foundUndefined) {
-            console.log({ PBest, teamset, teama, teamb, altA, altB, ABbestindex });
         }
-        console.log({PBest});
 
     }
-    console.log(PBest);
     return PBest;
 }
 
 function combination(array, size) {
+    const limit = 5000
     function p(t, i) {
+        if (result.length >= limit) {
+            return; 
+        }
         if (t.length === size) {
             result.push(t);
             return;
