@@ -1,6 +1,5 @@
 # Pick Fair Teams
 
-**NB Site currently down for redevelopment**
 
 Find the tool itself at [https://www.pickfairteams.com](https://www.pickfairteams.com).
 
