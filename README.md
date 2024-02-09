@@ -15,6 +15,7 @@ in many cases.
 
 The algorithm, called SynTeamPlus, was developed from the original SynTeam algorithm, which was designed by Ewa Andrejczuk. The code for the algorithm can be found in the `synTeamPlus.js` file, and overviews in words for SynTeam and my adaptations for SynTeamPlus can be found on pages 16 and 20 of my Thesis respectively.
 
+A python version is also provided in this repository.
 
 ## Licence
 
